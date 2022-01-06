@@ -61,6 +61,20 @@ module.exports = class Organization {
           });
         });
     }
+    
+    findNonstdUsers(org) {
+      return this.octokit.paginate("GET /users/member.login", {org: org, per_page: 100})
+        .then(members => {
+          return users.map(user => {
+            return {
+              login: user.login,
+              email: user.email || '',
+              company: user.company
+              public_repos: user.public_repos
+            };
+          });
+        });
+    }
   
     get octokit() {
       return this._octokit;
