@@ -1,4 +1,4 @@
-const Organization = require('./githublib/api')
+const Organization = require('./api')
   , RepositoryActivity = require('./githublib/RepositoryActivity')
   , RemoveUser = require('./githublib/RemoveUser')
   , UserActivity = require('./UserActivity')
