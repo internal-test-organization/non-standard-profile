@@ -1,10 +1,4 @@
-const Organization = require('./api')
-  , RepositoryActivity = require('./githublib/RepositoryActivity')
-  , RemoveUser = require('./githublib/RemoveUser')
-  , UserActivity = require('./UserActivity')
-;
-
-
+const Organization = require('./api');
 module.exports = class OrganizationUserActivity {
 
   constructor(octokit) {
