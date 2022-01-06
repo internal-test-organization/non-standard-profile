@@ -2,7 +2,6 @@ const fs = require('fs')
   , path = require('path')
   , core = require('@actions/core')
   , io = require('@actions/io')
-  , json2csv = require('json2csv')
   , OrganizationActivity = require('./src/OrgsUserActivity')
   , githubClient = require('./src/githublib/githubClient')
   
@@ -11,17 +10,12 @@ const fs = require('fs')
 
 async function run() {
   const since = core.getInput('since')
-    , days = core.getInput('activity_days')
     , token = getRequiredInput('token')
     , outputDir = getRequiredInput('outputDir')
     , organizationinp = getRequiredInput('organization')
     , maxRetries = getRequiredInput('octokit_max_retries')
   ;
 
-
-
-  
- 
 
   if((!Number(days)) || (days < 0)) {
     throw new Error('Provide a valid activity_days - It accept only Positive Number');
